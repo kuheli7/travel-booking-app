@@ -1,0 +1,90 @@
+[
+  {
+    "id": "exp1",
+    "title": "Kayaking",
+    "location": "Udupi",
+    "description": "Curated small-group experience. Certified guide. Safety first with gear included.",
+    "price": 999,
+    "imageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=6beedb3f0f7f9f983b0c3c13e18d6f6b",
+    "slotTimes": [
+      { "id": "s1", "time": "09:00 AM", "capacity": 5 },
+      { "id": "s2", "time": "11:00 AM", "capacity": 3 },
+      { "id": "s3", "time": "02:00 PM", "capacity": 0 },
+      { "id": "s4", "time": "04:00 PM", "capacity": 8 }
+    ]
+  },
+  {
+    "id": "exp2",
+    "title": "Nandi Hills Sunrise",
+    "location": "Bangalore",
+    "description": "Sunrise trekking and scenic views. Small groups only.",
+    "price": 899,
+    "imageUrl": "/src/assets/Nandi_Hills_Bangalore.jpg",
+    "slotTimes": [
+      { "id": "s5", "time": "05:00 AM", "capacity": 10 },
+      { "id": "s6", "time": "05:30 AM", "capacity": 5 }
+    ]
+  },
+  {
+    "id": "exp3",
+    "title": "Coffee Trail",
+    "location": "Coorg",
+    "description": "Curated small-group experience. Certified guide. Safety first with gear included.",
+    "price": 1299,
+    "imageUrl": "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=0f0d8f1e5a2c9389e20a0f2a0c6d1cfe",
+    "slotTimes": [
+      { "id": "s7", "time": "08:00 AM", "capacity": 12 },
+      { "id": "s8", "time": "10:00 AM", "capacity": 8 },
+      { "id": "s9", "time": "03:00 PM", "capacity": 6 }
+    ]
+  },
+  {
+    "id": "exp4",
+    "title": "Kayaking",
+    "location": "Udupi, Karnataka",
+    "description": "Curated small-group experience. Certified guide. Safety first with gear included.",
+    "price": 999,
+    "imageUrl": "/src/assets/kayaking2.jpg",
+    "slotTimes": [
+      { "id": "s10", "time": "09:00 AM", "capacity": 5 },
+      { "id": "s11", "time": "02:00 PM", "capacity": 3 }
+    ]
+  },
+  {
+    "id": "exp5",
+    "title": "Boat Cruise",
+    "location": "Sunderban",
+    "description": "Relaxing cruise with scenic views. Light refreshments included.",
+    "price": 999,
+    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7a7c6c0e8b7b2d9b7a1f0e3f6a4b7c2e",
+    "slotTimes": [
+      { "id": "s12", "time": "10:00 AM", "capacity": 20 },
+      { "id": "s13", "time": "03:00 PM", "capacity": 15 }
+    ]
+  },
+  {
+    "id": "exp6",
+    "title": "Bunjee Jumping",
+    "location": "Manali",
+    "description": "Adrenaline rush with safety harness and trained instructors.",
+    "price": 999,
+    "imageUrl": "/src/assets/bungee jumping.jpg",
+    "slotTimes": [
+      { "id": "s14", "time": "10:00 AM", "capacity": 4 },
+      { "id": "s15", "time": "01:00 PM", "capacity": 2 },
+      { "id": "s16", "time": "04:00 PM", "capacity": 0 }
+    ]
+  },
+  {
+    "id": "exp7",
+    "title": "Coffee Trail",
+    "location": "Coorg",
+    "description": "Scenic coffee plantation trails and tasting.",
+    "price": 1299,
+    "imageUrl": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3f4e3a8e2b7a4d6c7f8b9a1e2c3d4b5f",
+    "slotTimes": [
+      { "id": "s17", "time": "08:00 AM", "capacity": 10 },
+      { "id": "s18", "time": "02:00 PM", "capacity": 8 }
+    ]
+  }
+]
