@@ -200,13 +200,7 @@ curl http://localhost:4000/api/promo
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
 
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-Kuheli - Christ University FSD Internshala Assignment
 
 ## 🙏 Acknowledgments
 
