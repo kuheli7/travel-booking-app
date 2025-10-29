@@ -192,9 +192,6 @@ curl http://localhost:4000/api/promo
 - Apply promo codes
 - Complete booking
 
-## 📸 Screenshots
-
-[Add screenshots of your application here]
 
 ## 🤝 Contributing
 
@@ -202,12 +199,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 
 
-## 🙏 Acknowledgments
-
-- Highway Delite for the project inspiration
-- React and Vite communities
-- TailwindCSS team
-
----
-
-**Note:** Remember to update MongoDB Atlas network access to allow connections from Render's IP addresses when deploying to production.
