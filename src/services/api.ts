@@ -1,7 +1,9 @@
 import axios from 'axios';
 import type { Experience, Booking, BookingFormData, PromoCode, ApiResponse, Slot } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+// Normalize API base URL: strip any trailing slash so concatenation with '/api' doesn't produce '//'
+const rawApiBase = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const API_BASE_URL = rawApiBase.replace(/\/$/, '');
 
 const api = axios.create({
   baseURL: API_BASE_URL + '/api',
