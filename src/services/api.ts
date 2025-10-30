@@ -15,7 +15,12 @@ export const experienceService = {
   getExperiences: async (): Promise<Experience[]> => {
     try {
       const response = await api.get<ApiResponse<Experience[]>>('/experiences');
-      return response.data.data || [];
+      // Backend returns either { data: [...] } or a raw array depending on environment.
+      if (response.data && (response.data as any).data) return (response.data as any).data as Experience[];
+      // If backend returned the raw array directly, axios puts it on response.data
+      if (Array.isArray(response.data as any)) return response.data as unknown as Experience[];
+      // Fallback
+      return [];
     } catch (error) {
       console.error('Error fetching experiences:', error);
       // Return mock data for development
@@ -27,7 +32,9 @@ export const experienceService = {
   getExperienceById: async (id: string): Promise<Experience | null> => {
     try {
       const response = await api.get<ApiResponse<Experience>>(`/experiences/${id}`);
-      return response.data.data || null;
+      if (response.data && (response.data as any).data) return (response.data as any).data as Experience;
+      if (response.data && typeof response.data === 'object') return response.data as unknown as Experience;
+      return null;
     } catch (error) {
       console.error('Error fetching experience:', error);
       // Return mock data for development
