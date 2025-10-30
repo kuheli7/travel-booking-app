@@ -12,6 +12,7 @@ A full-stack travel booking application built with React, TypeScript, Vite, Tail
 - https://travel-booking-app-zkjq.onrender.com/api/experiences/ids
 - https://travel-booking-app-zkjq.onrender.com/api/bookings
 - https://travel-booking-app-zkjq.onrender.com/api/promo
+- https://travel-booking-app-zkjq.onrender.com/api/promo/validate
 
 ## ✨ Features
 
