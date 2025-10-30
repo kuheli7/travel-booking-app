@@ -12,11 +12,19 @@ const promoRouter = require('./routes/promo');
 const app = express();
 
 // CORS configuration for production
+// Normalize FRONTEND_URL (remove any trailing slash) to avoid exact-match mismatches
+const getAllowedOrigin = () => {
+  if (process.env.NODE_ENV === 'production') {
+    const raw = process.env.FRONTEND_URL || '';
+    return raw.replace(/\/$/, ''); // strip trailing slash if present
+  }
+  return ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'];
+};
+
+const allowedOrigin = getAllowedOrigin();
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL 
-    : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
-  credentials: true
+  origin: allowedOrigin,
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
