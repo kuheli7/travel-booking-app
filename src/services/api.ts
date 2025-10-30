@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Experience, Booking, BookingFormData, PromoCode, ApiResponse } from '../types';
+import type { Experience, Booking, BookingFormData, PromoCode, ApiResponse, Slot } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
@@ -33,6 +33,42 @@ export const experienceService = {
       // Return mock data for development
       const mockData = getMockExperiences();
       return mockData.find(exp => exp.id === id) || null;
+    }
+  },
+  // Get flattened slots for an experience (each slot includes its date and availableSpots)
+  getSlots: async (experienceId: string): Promise<Slot[]> => {
+    try {
+      const response = await api.get<ApiResponse<Experience>>(`/experiences/${experienceId}`);
+      const exp = response.data.data;
+      if (!exp) return [];
+
+      // Flatten DateSlots -> Slot[] and attach date + compute availableSpots (default from capacity)
+      const flattened: Slot[] = [];
+      if (exp.slots && Array.isArray(exp.slots)) {
+        exp.slots.forEach((ds) => {
+          ds.slots.forEach((s) => {
+            flattened.push({
+              ...s,
+              date: ds.date,
+              availableSpots: (s.availableSpots ?? s.capacity) as number,
+            } as Slot);
+          });
+        });
+      }
+      return flattened;
+    } catch (error) {
+      console.error('Error fetching slots:', error);
+      // derive from mock data when backend isn't available
+      const mock = getMockExperiences();
+      const exp = mock.find((e) => e.id === experienceId);
+      if (!exp || !exp.slots) return [];
+      const flattened: Slot[] = [];
+      exp.slots.forEach((ds) => {
+        ds.slots.forEach((s) =>
+          flattened.push({ ...s, date: ds.date, availableSpots: s.capacity })
+        );
+      });
+      return flattened;
     }
   },
 };
@@ -76,7 +112,7 @@ export const bookingService = {
 
 // Mock data for development (when backend is not available)
 function getMockExperiences(): Experience[] {
-  return [
+  const mock = [
     {
       id: 'exp1',
       title: 'Kayaking Adventure',
@@ -212,6 +248,7 @@ function getMockExperiences(): Experience[] {
       ],
     },
   ];
+  return mock as unknown as Experience[];
 }
 
 function getMockPromoCode(code: string): PromoCode | null {

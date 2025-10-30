@@ -128,6 +128,7 @@ const CheckoutPage: React.FC = () => {
     try {
       const booking = await bookingService.createBooking(
         experience.id,
+        slot.date,
         slot.id,
         formData,
         appliedPromo?.code
