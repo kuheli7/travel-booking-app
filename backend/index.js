@@ -36,4 +36,18 @@ app.use('/api/experiences', experiencesRouter);
 app.use('/api/bookings', bookingsRouter);
 app.use('/api/promo', promoRouter);
 
+// Root route - helpful for health checks and quick verification
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'Highway Delite API is running',
+    endpoints: [
+      '/api/experiences',
+      '/api/experiences/ids',
+      '/api/bookings',
+      '/api/promo'
+    ]
+  });
+});
+
 app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));
