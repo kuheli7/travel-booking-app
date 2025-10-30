@@ -35,12 +35,16 @@ router.get('/', async (req, res) => {
     const src = (item.imageUrl || '').toString();
     if (src.startsWith('http')) {
       out.image = src;
+      out.imageUrl = src;
     } else if (src.includes('/src/assets/')) {
       const parts = src.split('/');
       const filename = parts[parts.length - 1];
-      out.image = imageMap[filename] || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      const mapped = imageMap[filename] || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      out.image = mapped;
+      out.imageUrl = mapped;
     } else {
       out.image = src || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      out.imageUrl = out.image;
     }
     return out;
   });
@@ -57,6 +61,7 @@ router.get('/:id', async (req, res) => {
     const src = (exp.imageUrl || '').toString();
     if (src.startsWith('http')) {
       exp.image = src;
+      exp.imageUrl = src;
     } else if (src.includes('/src/assets/')) {
       const parts = src.split('/');
       const filename = parts[parts.length - 1];
@@ -65,9 +70,12 @@ router.get('/:id', async (req, res) => {
         'kayaking2.jpg': 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80',
         'bungee jumping.jpg': 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80'
       };
-      exp.image = imageMap[filename] || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      const mapped = imageMap[filename] || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      exp.image = mapped;
+      exp.imageUrl = mapped;
     } else {
       exp.image = src || 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop';
+      exp.imageUrl = exp.image;
     }
     res.json(exp);
   } catch (err) {
