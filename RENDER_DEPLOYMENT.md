@@ -46,7 +46,7 @@
    ```
    NODE_ENV = production
    PORT = 4000
-   MONGO_URI = mongodb+srv://bookit_user:Kuheli%4012345@cluster0.s2mg5td.mongodb.net/bookit?retryWrites=true&w=majority&appName=Cluster0
+   MONGO_URI = mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
    FRONTEND_URL = (leave empty for now, will update after frontend deployment)
    ```
 
